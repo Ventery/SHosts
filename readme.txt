@@ -1,3 +1,5 @@
+SHosts.sh:
+
 一个可以便捷切换hosts文件，以及增加hosts条目的shell脚本（本意是为了督促自己不要在学习时间上B站和贴吧）。原理很简单，就是利用hosts文件将B站和贴吧解析到127.0.0.1。
 适用于macos10.15.7版本
 
@@ -19,3 +21,16 @@ SHost shut 关闭此功能
 SHost add 根据后续提示在文件中增加相应屏蔽条目
 
 以上命令有的需要root权限
+-------------------------------------------------------------------------------------
+trans.sh:
+可以便捷将文件（相对路径或者绝对路径）传输到指定服务器目录的命令，其实就是scp简化版，只需要输入trans filename即可完成传输，目标服务器目录名称在～/.bash_profile配置。
+使用说明：
+1、提前用ssh-copy-id 把公钥复制到远程主机上，这样使用ssh和scp时可以免去输密码。详细可见
+https://blog.csdn.net/bravezhe/article/details/7302800?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-8&spm=1001.2101.3001.4242
+
+2、在.bash_profile中加入名为remote_host的环境变量并设置好。
+3、在.bash_profile中加入 alias trans='source ~/bin/trans.sh'
+后面那个是trans.sh的目录，放个合适的地方就行
+4、执行source ～/.bash_profile
+5、执行 trans filename即可将文件传输
+
